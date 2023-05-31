@@ -1,43 +1,47 @@
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useState } from 'react'
-
+//import "./App.css";
+import { useState } from "react";
+import Test from "./components/Test";
+import { Button, Form } from "react-bootstrap";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [name, setName]= useState('');
-  
-  console.log('Name', name);
+  //const [count, setCount] = useState(0);
+  //const [name, setName] = useState("");
+  const [value, setValue] = useState('');
+  const [notes, setNotes] = useState([]); //array de notas
+
+  //console.log("Name", name);
   return (
-    <>
+    <div className="border border-danger border-3 container m-5 pt-5">
+      <h1>Notas</h1>
+
+      <div className="m-5 border border-info p-3">
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Ingrese la nota deseada</Form.Label>
+            <Form.Control type="text" placeholder="Nota..." minLength={4} maxLength={50} value={value} onChange={({target})=>{
+              setValue(target.value);
+            }}/>
+          </Form.Group>
+          <Button
+          variant="primary"
+          type="button"
+          onClick={() => {
+            setNotes([...notes, value]);
+            setValue("");
+          }}
+        >
+          Agregar Nota
+        </Button>
+        </Form>
+       
+      </div>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <div>
+          <Test notes={notes} setNotes={setNotes}></Test>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => {
-          const newCount = count + 1;
-          setCount(newCount)
-          setName(`Alan - ${newCount}`);
-          }}>
-          count is {count} y el valor de name es: {name}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
