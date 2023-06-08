@@ -4,12 +4,13 @@ import { Button } from "react-bootstrap";
 // eslint-disable-next-line react/prop-types
 const Test = ({ notes, setNotes}) => {
   // eslint-disable-next-line react/prop-types
-  //const {name}=props;
-const eraseNote=(index)=>{
+
+  const eraseNote=(index)=>{
     
+    const traerNotas = [...notes]
    // eslint-disable-next-line react/prop-types
-   notes.splice(index,1);
-   setNotes(notes);
+   traerNotas.splice(index,1);
+   setNotes(traerNotas);
 }
   return (
     <div className="border border-success m-5 p-5">
