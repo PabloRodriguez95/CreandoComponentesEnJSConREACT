@@ -18,7 +18,7 @@ function App() {
   // };
 
   return (
-    <div className="border border-danger border-3 container m-5 pt-5">
+    <div className="border border-danger border-5 m-5 container-fluid">
       {/* <h1>Notas</h1>
 
       <div className="m-5 border border-info p-3">
