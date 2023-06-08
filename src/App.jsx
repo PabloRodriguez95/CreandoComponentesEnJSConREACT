@@ -1,24 +1,42 @@
 //import "./App.css";
-// import { useState } from "react";
-// import Test from "./components/Test";
+ import { useState } from "react";
+ import Test from "./components/Test";
 // import { Button, Form } from "react-bootstrap";
-// import Destructuring from "./components/Destructuring";
-// import Promesas from "./components/Promesas";
+ import Destructuring from "./components/Destructuring";
+ import Promesas from "./components/Promesas";
 import UsoDeEfecto from "./components/UsoDeEfecto";
-
+// eslint-disable-next-line no-unused-vars
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Error from "./components/Error";
 function App() {
-  // const [value, setValue] = useState("");
-  // const [notes, setNotes] = useState([]);
+  const [value, setValue] = useState("");
+  const [notes, setNotes] = useState([]);
 
-  // const agregarNota = () => {
-  //   if (value.trim() !== "") {
-  //     setNotes([...notes, value]);
-  //     setValue("");
-  //   }
-  // };
-
+  // eslint-disable-next-line no-unused-vars
+  const agregarNota = () => {
+    if (value.trim() !== "") {
+      setNotes([...notes, value]);
+      setValue("");
+    }
+  };
+  const currentUser='ADMIN';
   return (
-    <div className="border border-danger border-3 container m-5 pt-5">
+    <main className="container-fluid border border-dark border-5">
+      <BrowserRouter>
+          <div className="text-dark">
+            <a href="/">Inicio</a>
+          </div>
+        <div className="border border-danger border-5 m-5">
+          <Routes>
+            <Route  index exact path="/" element={<UsoDeEfecto />} />
+            <Route exact path="/destructuring" element={<Destructuring />} />
+            {currentUser==='ADMIN' &&  <Route exact path="/test" element={<Test notes={notes} setNotes={setNotes}  />} />}           
+            <Route exact path="/promesas" element={<Promesas />} />
+            <Route path="/*" element={<Error />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+
       {/* <h1>Notas</h1>
 
       <div className="m-5 border border-info p-3">
@@ -53,8 +71,8 @@ function App() {
       </div> */}
       {/* <Destructuring />
       <Promesas /> */}
-      <UsoDeEfecto />
-    </div>
+      {/* <UsoDeEfecto /> */}
+    </main>
   );
 }
 

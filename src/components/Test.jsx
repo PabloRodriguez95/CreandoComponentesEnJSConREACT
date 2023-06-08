@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Test = ({ notes, setNotes}) => {
   // eslint-disable-next-line react/prop-types
-
+const navegador=useNavigate();
   const eraseNote=(index)=>{
     
     const traerNotas = [...notes]
@@ -35,6 +36,9 @@ const Test = ({ notes, setNotes}) => {
           );
         })
       }
+      <div>
+        <button onClick={()=>{navegador(-1)}}>atras</button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const Promesas = () => {
@@ -40,6 +41,7 @@ const Promesas = () => {
 //         console.log(err)
 //     }) 
   
+  const navigate = useNavigate();
   
     return (
    <>
@@ -55,7 +57,9 @@ const Promesas = () => {
     })
     }
 
-   
+   <div>
+    <button onClick={()=>{navigate('/test')}}>Ir a test</button>
+   </div>
    </>
   )
 }
