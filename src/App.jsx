@@ -8,6 +8,8 @@ import UsoDeEfecto from "./components/UsoDeEfecto";
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Error from "./components/Error";
+import SignUp from "./components/SignUp";
+
 function App() {
   const [value, setValue] = useState("");
   const [notes, setNotes] = useState([]);
@@ -32,6 +34,7 @@ function App() {
             <Route exact path="/destructuring" element={<Destructuring />} />
             {currentUser==='ADMIN' &&  <Route exact path="/test" element={<Test notes={notes} setNotes={setNotes}  />} />}           
             <Route exact path="/promesas" element={<Promesas />} />
+            <Route exact path="/signup" element={<SignUp />} />
             <Route path="/*" element={<Error />} />
           </Routes>
         </div>

@@ -55,6 +55,7 @@ const UsoDeEfecto = () => {
         <button className="btn mx-2 btn-outline-info" onClick={()=>navigate("/promesas")}>Promesas</button>
         <button className="btn mx-2 btn-outline-info" onClick={()=>{ navigate('/test')}}>test</button>
         <button className="btn mx-2 btn-outline-info" onClick={()=>{navigate('/destructuring')}}>destructuring</button>
+        <button className="btn mx-2 btn-outline-info" onClick={()=>{navigate('/signup')}}>SignUp</button>
       </div>
       <div className="d-flex justify-content-center my-2">
       <button onClick={() => setMostrar(false)} className="mx-3 btn btn-outline-danger"> Ocultar Personajes</button>
